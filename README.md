@@ -5,5 +5,4 @@ Rodar o Wordepress no container Docker
 
 <p> Desenvolvido docker compose que possibilita a </P>
 <p> utilização da ferramenta Wordepress no Docker </p>
-<p> - Utilizado a image wordpress:php7.4 e o </P>
-<p> mysql:8 </p>
+<p> - Utilizado a image wordpress:php7.4 e o mysql:5.7 </p>
