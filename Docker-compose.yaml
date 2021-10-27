@@ -15,18 +15,18 @@ services:
     ports:
       - 8080:80
     depends_on:
-      - dbmysql
+      - db
     networks:
       - wordnet
     environment:
-      WORDPRESS_DB_HOST: dbmysql
+      WORDPRESS_DB_HOST: db
       WORDPRESS_DB_USER: useralex
       WORDPRESS_DB_PASSWORD: senha@123
       WORDPRESS_DB_NAME: mysqldb
     volumes:
       - wordpress:/var/www/html
 
-  dbmysql:
+  db:
     image: mysql:5.7
     environment:
       MYSQL_DATABASE: mysqldb
