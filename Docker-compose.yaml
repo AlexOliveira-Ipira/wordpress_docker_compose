@@ -1,0 +1,40 @@
+version: '3.1'
+
+networks:
+  wordnet:
+    driver: bridge
+
+volumes:
+  wordpress:
+  db:
+
+services:
+
+  wordpress:
+    image: wordpress
+    ports:
+      - 8080:80
+    depends_on:
+      - dbmysql
+    networks:
+      - wordnet
+    environment:
+      WORDPRESS_DB_HOST: dbmysql
+      WORDPRESS_DB_USER: useralex
+      WORDPRESS_DB_PASSWORD: senha@123
+      WORDPRESS_DB_NAME: mysqldb
+    volumes:
+      - wordpress:/var/www/html
+
+  dbmysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_DATABASE: mysqldb
+      MYSQL_USER: useralex
+      MYSQL_PASSWORD: senha@123
+      MYSQL_RANDOM_ROOT_PASSWORD: '1'
+    networks:
+      - wordnet
+    volumes:
+      - db:/var/lib/mysql
+
