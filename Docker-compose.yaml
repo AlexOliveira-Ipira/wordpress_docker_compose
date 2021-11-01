@@ -37,4 +37,3 @@ services:
       - wordnet
     volumes:
       - db:/var/lib/mysql
-
